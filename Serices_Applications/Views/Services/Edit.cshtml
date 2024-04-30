@@ -1,0 +1,98 @@
+﻿@* //////////////////////////////////////////////////
+//Author    : Mohammed Gaffer Aidaab
+//For       : King Faisual University
+//Under     : ISB integrated sulution business Company
+// Services Management System
+//Date      : March - 2024
+///////////////////////////////////////////////////// *@
+@using Domain.Data.Enum
+@model Domain.Entities.ServicesInfo
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ServicesInfo</h4>
+<hr />
+<div class="card text-center">
+    <div class="card-header">
+        <h2>Edit Service</h2>
+    </div>
+    <div class="card-body" style="text-align:start;font-size:x-large">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="id" class="form-control" hidden />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" onkeypress="return /[0-9a-zA-Z-ا-ي- -]/i.test(event.key)" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div action="form-group">
+                        <label asp-for="ServicesTypes" class="control-lable"></label>
+                        <select asp-for="ServicesTypes" asp-items="@Html.GetEnumSelectList<ServicesTypes>()" class="form-control">
+                            <option value="-1">please select</option>
+                        </select>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ServicesCategories" class="control-label"></label>
+                        <select asp-for="ServicesCategories" asp-items="@Html.GetEnumSelectList<ServicesCategories>()" class="form-control">
+                            <option value="-1">please select</option>
+                        </select>
+                        <span asp-validation-for="ServicesCategories" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" onkeypress="return /[0-9a-zA-Z-ا-ي- -]/i.test(event.key)"  />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label asp-for="Test_URL" class="control-label"></label>
+                        <input asp-for="Test_URL" class="form-control" />
+                        <span asp-validation-for="Test_URL" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label asp-for="Production_URL" class="control-label"></label>
+                        <input asp-for="Production_URL" class="form-control" />
+                        <span asp-validation-for="Production_URL" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="File" class="control-label"></label>
+                        <input type="file" name="File" class="form-control" />
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <input type="submit" value="حفظ البيانات" name="submit" class="btn btn-primary" />
+        </form>
+    </div>
+
+    <div class="card-footer text-dark">
+        -
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

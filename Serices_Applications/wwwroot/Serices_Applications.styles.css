@@ -1,0 +1,161 @@
+﻿/*//////////////////////////////////////////////////
+//Author : Mohammed Gaffer Aidaab
+//For : King Faisual University
+//Under : ISB integrated sulution business Company
+// Services Management System
+//Date : March - 2024
+/////////////////////////////////////////////////////*/
+
+body {
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    background-image: url('images/main-bg.png');
+    /*background-image: url('images/test2.png');*/
+    /*background-image: url('images/imageedit_3_4735515480.png');*/
+    /*background-image: url('images/imageedit_4_4524510109.png');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.btn-primary {
+    background-color: #c69a47;
+    outline: #0e6168;
+}
+
+.btn-primary:hover {
+    background-color: #0e6168;
+}
+
+.btn-Secoundary {
+    background-color: #c69a47;
+    outline: #0e6168;
+}
+
+.btn-Secoundary:hover {
+    background-color: #0e6168;
+}
+
+.footer {
+    height: 10%;
+    background-color: #0a6168;
+    padding-top: 10px;
+}
+
+.navbar {
+    background-color: #0a6168 !important;
+}
+
+.navbar a{
+    color:white !important
+}
+.navbar button {
+    color: white !important
+}
+
+
+.li{
+    color:white !important;
+}
+
+
+/*=========================================================================================*/
+
+
+#accordion .panel {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 0 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#accordion .panel-heading {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+}
+
+#accordion .panel-heading:before,
+#accordion .panel-heading:after {
+    content: "";
+    width: 50%;
+    height: 20%;
+    box-shadow: 0 15px 5px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    transform: rotate(-3deg);
+    z-index: -1;
+}
+
+#accordion .panel-heading:after {
+    left: auto;
+    right: 10px;
+    transform: rotate(3deg);
+}
+
+#accordion .panel-title a {
+    display: block;
+    padding: 15px 70px 15px 70px;
+    margin: 0;
+    background: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #c69a47;
+    border-radius: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    position: relative;
+    text-align:center;
+}
+
+#accordion .panel-title a:before,
+#accordion .panel-title a.collapsed:before {
+    content: "\f106";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    width: 55px;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    border-left: 2px solid #0e6a73;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#accordion .panel-title a.collapsed:before {
+    content: "\f107";
+}
+
+#accordion .panel-title a .icon {
+    display: inline-block;
+    width: 55px;
+    height: 100%;
+    border-right: 2px solid #0e6a73;
+    font-size: 20px;
+    color: rgba(0,0,0,0.7);
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#accordion .panel-body {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    border-bottom: 3px solid #d11149;
+    border-top: none;
+    background: #fff;
+    font-size: 15px;
+    color: #333;
+    line-height: 27px;
+}

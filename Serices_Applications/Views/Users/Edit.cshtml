@@ -1,0 +1,70 @@
+﻿@model Domain.Entities.AppUser
+@* @model Microsoft.AspNetCore.Identity.IdentityUser *@
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AppUser</h4>
+<hr />
+
+<div class="card text-center">
+    <div class="card-header">
+        Services system
+    </div>
+    <div class="card-body">
+
+        <div class="row" style="text-align:start">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div class="form-group">
+                        <input asp-for="Id" class="form-control" value="@Model.Id" style="visibility:hidden" />
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" type="number"/>
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="userrole" class="control-label"></label>
+                        @Html.DropDownList("userrole", (IEnumerable<SelectListItem>)ViewBag.Roles, "", new { @class = "form-control" })
+                        <div class="form-group">
+                            <br />
+                            <input type="submit" value="Save data" class="btn btn-primary" />
+                         </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-dark">
+        King Faisal university
+    </div>
+</div>
+
+<br />
+
+
+<div>
+    <a asp-action="Index"> <button class="btn btn-info">back <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button> </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

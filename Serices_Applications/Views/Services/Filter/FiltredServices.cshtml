@@ -1,0 +1,133 @@
+﻿@using Domain.Data.Enum
+@model IEnumerable<Domain.Entities.ServicesInfo>
+
+
+
+@if (!Model.Any())
+{
+    <div class="card">
+        <div class="card-body">
+            <center>
+               <h3>عفولا ولاكن لايوجد اي خدمات تحت التصنيف المختار</h3>
+            </center>
+        </div>
+    </div>
+}
+else
+{
+
+    <div class="card text-center" style="background-color:transparent">
+        <div class="card-header" style="background-color:#f7f7f7">
+            Services system
+        </div>
+        <div class="card-body" >
+
+            <div class="row" style="text-align:right">
+                <div class="accordion" id="accordionExample">
+                    @foreach (var Service in Model)
+                    {
+                        <div class="accordion-item" style="border:none;margin-top:10px;border-radius:15px">
+                            <h2 class="accordion-header" id="#accordion">
+                                @* <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_@Service.id" aria-expanded="false" aria-controls="collapseOne"> *@
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                <a class="collapsed accordion-button"  data-bs-toggle="collapse" data-bs-target="#collapseOne_@Service.id" aria-expanded="false" aria-controls="collapseOne">
+                                                    <i class="icon fa fa-cog"></i>
+                                                    @Service.Name
+                                                </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @* </button> *@
+                            </h2>
+                            <div id="collapseOne_@Service.id" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col-md-12" style="display:flex">
+                                            <div class="col-md-6" style="border-radius:10px;background-color:#a9a7a730;margin:5px">
+                                                <label style="padding-right:8px;padding-top:3px;font-weight:800"> service Description </label>
+                                                <br />
+                                                <label style="font-weight:500;margin:10px">
+                                                    @Service.Description
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <lable>test url</lable>
+                                                <br />
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" value="@Service.Test_URL" readonly class="form-control" id="Test_@Service.id" />
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fa-solid fa-copy" onclick="TestFunction('Test_'+@Service.id)"></i></span>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <lable>Production url</lable>
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" value="@Service.Production_URL" readonly class="form-control" id="@Service.id" />
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fa-solid fa-copy" onclick="ProdFunction(@Service.id)"></i></span>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <div class="row" >
+                                                    <div class="col-md-6">
+                                                        servicec type
+                                                        <br />
+                                                        <input type="text" value=" @Service.ServicesTypes" readonly class="form-control" />
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        servicec Catigory
+                                                        <input type="text" value="@Service.ServicesCategories" readonly class="form-control" />
+                                                    </div>
+                                                </div>
+                                                   
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-9" style="align-content:end">
+                                                        @if (User.IsInRole("super_admin") || User.IsInRole("admin") || User.IsInRole("editor"))
+                                                        {
+                                                            <div class="row">
+                                                                <a href="/Services/edit/@Service.id"><button class="btn btn-primary">تعديل الخدمة</button> </a>
+                                                            </div>
+                                                        }
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        @if (Service.File_path != null)
+                                                        {
+                                                            <label><strong> download</strong> </label>
+                                                            <a href="~/Attachments/ServicesDocumentations/@Service.File_path" target="_blank">  <i class="fa fa-cloud-download fa-3x" aria-hidden="true"></i> </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p>no Document file</p>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                   
+                                          
+
+                                                   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card-footer text-dark" style="background-color:#f7f7f7">
+            King Faisal university
+        </div>
+    </div>
+
+}

@@ -1,0 +1,117 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "login_layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form>
+            <h1>Services System</h1>
+            <div class="social-icons">
+                <a href="#" class="icon">
+                    <i class="fa-brands fa-google-plus-g">
+                    </i>
+                </a>
+                <a href="#" class="icon">
+                    <i class="fa-brands fa-facebook-f">
+                    </i>
+                </a> <a href="#" class="icon">
+                    <i class="fa-brands fa-github">
+                    </i>
+                </a>
+                <a href="#" class="icon">
+                    <i class="fa-brands fa-linkedin-in">
+                    </i>
+                </a>
+
+            </div>
+            <span>
+                system to collect all the services in one place 
+            </span>
+            <div>
+
+            </div>
+           
+        </form>
+    </div>
+
+    <div class="form-container sign-in">
+        <form id="account" method="post">
+            <h3>Use a local account to log in.</h3>
+            <hr />
+            <div class="social-icons">
+                <a href="#" class="icon">
+                    <i class="fa-brands fa-google-plus-g">
+                    </i>
+                </a>
+                <a href="#" class="icon">
+                    <i class="fa-brands fa-facebook-f">
+                    </i>
+                </a> <a href="#" class="icon">
+                    <i class="fa-brands fa-github">
+                    </i>
+                </a>
+                <a href="#" class="icon">
+                    <i class="fa-brands fa-linkedin-in">
+                    </i>
+                </a>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div >
+                <input asp-for="Input.Email"  autocomplete="username" aria-required="true" placeholder="name@example.com" type="text" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                <input asp-for="Input.Password"  autocomplete="current-password" aria-required="true" placeholder="password" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div style="display:flex !important">
+                <input class="form-check-input" asp-for="Input.RememberMe" />
+                @Html.DisplayNameFor(m => m.Input.RememberMe)
+            </div>
+            <div>
+                <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+            </div>
+            <div style="text-align:center">
+                <p>
+                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                </p>
+                <p>
+                    <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                </p>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>
+                    Enter your personal details to use all of site
+                    features
+                </p>
+                <button class="hidden" id="login">Sign In</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Friend!</h1>
+                <p>
+                    Register with your personal details to use all of site
+                    features
+                </p>
+                <button class="hidden" id="register">Abiut the system</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@* @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@

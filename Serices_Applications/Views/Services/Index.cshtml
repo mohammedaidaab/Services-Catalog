@@ -1,0 +1,78 @@
+﻿@using Domain.Data.Enum
+@model IEnumerable<Domain.Entities.ServicesInfo>
+
+<br />
+<br />
+@if (User.IsInRole("super_admin"))
+{
+    <div style="text-align:end">
+        <a href="/Services/create"><button class="btn btn-primary">اضافة خدمة جديدة</button></a>
+        <br />
+    </div>
+}
+
+<br />
+
+
+<div class="col-md-3" style="display:block flex">
+    <label class="col-form-label">بحث</label>
+    &nbsp;&nbsp;&nbsp;
+    <select name="Filter" class="form-select">
+        <option value="">ALL</option>
+        <option value="Notification">Notification</option>
+        <option value="Bannar">Bannar</option>
+        <option value="ERP">ERP</option>
+        <option value="MobileApp">MobileApp</option>
+        <option value="AD">AD</option>
+        <option value="Services">Services</option>
+    </select>
+</div>
+
+<br />
+
+<div id="partialViewContainer">
+    <partial name="Filter/FiltredServices" />
+</div>
+
+<br />
+
+@section Scripts {
+<partial name="_NotificationPartial" />
+
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+ }
+
+
+    <script>
+        var url = "/Services/FilterList";
+        var value = "";
+        $(document).ready(function () {
+            $("select").change(function () {
+                //alert($(this).val());
+                value = $(this).val();
+                $.get('/Services/FilterList?Filter='+value, function (data) {
+                    $('#partialViewContainer').html(data);
+                });
+            });
+        });
+
+
+        function ProdFunction(ServiceId) {
+            var copyText = document.getElementById(ServiceId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+        }
+
+        function TestFunction(ServiceId) {
+            var copyText = document.getElementById(ServiceId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+        }
+    </script>
+
+}
+
