@@ -11,9 +11,6 @@ using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.Language.Intermediate;
-using NuGet.Protocol;
-using System;
 using UI.Extentions;
 
 namespace UI.Controllers
