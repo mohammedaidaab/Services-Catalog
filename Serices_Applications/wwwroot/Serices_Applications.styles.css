@@ -6,59 +6,6 @@
 //Date : March - 2024
 /////////////////////////////////////////////////////*/
 
-body {
-    font-family: "Changa", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    background-image: url('images/main-bg.png');
-    /*background-image: url('images/test2.png');*/
-    /*background-image: url('images/imageedit_3_4735515480.png');*/
-    /*background-image: url('images/imageedit_4_4524510109.png');*/
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
-
-.btn-primary {
-    background-color: #c69a47;
-    outline: #0e6168;
-}
-
-.btn-primary:hover {
-    background-color: #0e6168;
-}
-
-.btn-Secoundary {
-    background-color: #c69a47;
-    outline: #0e6168;
-}
-
-.btn-Secoundary:hover {
-    background-color: #0e6168;
-}
-
-.footer {
-    height: 10%;
-    background-color: #0a6168;
-    padding-top: 10px;
-}
-
-.navbar {
-    background-color: #0a6168 !important;
-}
-
-.navbar a{
-    color:white !important
-}
-.navbar button {
-    color: white !important
-}
-
-
-.li{
-    color:white !important;
-}
 
 
 /*=========================================================================================*/

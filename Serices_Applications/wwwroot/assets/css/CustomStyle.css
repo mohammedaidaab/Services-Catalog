@@ -1,0 +1,30 @@
+﻿body {
+}
+
+.aside-menu {
+    background-color: #ffffff ;
+}
+
+.aside {
+    background-color: #ffffff;
+}
+    .aside .aside-logo {
+        background-color: #ffffff ;
+    }
+
+.aside-menu .menu > .menu-item > .menu-link.active .menu-icon i {
+    color: #3a3a5d;
+}
+
+.aside-menu .menu > .menu-item > .menu-link.active {
+    background-color: #e1b623;
+}
+
+.content {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.accordion-button .hover {
+    color: red;
+}

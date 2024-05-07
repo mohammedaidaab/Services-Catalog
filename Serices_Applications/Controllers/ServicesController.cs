@@ -30,7 +30,8 @@ namespace UI.Controllers
         [AllowAnonymous]
         public ActionResult Index(String? Filter)
         {
-            
+            //ViewData["Iframe"] = @"<iframe name='myIframe' id='myIframe' width='200' height='200' src='/Services/create'></iframe>";
+
             FilterList(Filter);
             return View();
         }
@@ -41,6 +42,7 @@ namespace UI.Controllers
             var services = _ServicesRepository.GetAll(Filter);
             return PartialView("Filter/FiltredServices",services);
         }
+
 
         // GET: ServicesController/Create
         [Authorize(Roles = "super_admin,admin,editor")]

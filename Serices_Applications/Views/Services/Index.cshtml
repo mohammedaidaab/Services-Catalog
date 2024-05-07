@@ -1,18 +1,16 @@
 ﻿@using Domain.Data.Enum
-@model IEnumerable<Domain.Entities.ServicesInfo>
 
-<br />
-<br />
 @if (User.IsInRole("super_admin"))
 {
     <div style="text-align:end">
         <a href="/Services/create"><button class="btn btn-primary">اضافة خدمة جديدة</button></a>
-        <br />
+
+        <div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" id="kt_activities_toggle">
+            <i class="fa fa-plus fs-2"></i>
+        </div>
     </div>
+    
 }
-
-<br />
-
 
 <div class="col-md-3" style="display:block flex">
     <label class="col-form-label">بحث</label>
@@ -28,16 +26,15 @@
     </select>
 </div>
 
-<br />
 
 <div id="partialViewContainer">
     <partial name="Filter/FiltredServices" />
+    <br />
 </div>
 
 <br />
 
 @section Scripts {
-<partial name="_NotificationPartial" />
 
 @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
