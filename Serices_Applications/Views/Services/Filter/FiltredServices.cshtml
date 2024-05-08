@@ -1,7 +1,17 @@
 ﻿@using Domain.Data.Enum
+@using Microsoft.AspNetCore.Identity
 @model IEnumerable<Domain.Entities.ServicesInfo>
 
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
+    
+@if (!SignInManager.IsSignedIn(User))
+{
+    <div style="text-align:end">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"><button class="btn btn-primary">Login</button></a>
+    </div>
+}
 
 @if (!Model.Any())
 {
@@ -16,11 +26,8 @@
 }
 else
 {
-
     <div class="card text-center" style="background-color:transparent">
-        
         <div class="card-body" >
-
             <div class="row" style="text-align:right">
                 <div class="accordion" id="accordionExample">
                     @foreach (var Service in Model)

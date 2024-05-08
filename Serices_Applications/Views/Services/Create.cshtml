@@ -11,18 +11,14 @@
 
 @{
     ViewData["Title"] = "Index";
- 
+    Layout = null;
+
 }
-
-<br />
-<br />
-<br />
-<hr />
-
+<div class="card-header">
+    <h2>اضافة خدمة</h2>
+</div>
 <div class="card text-center">
-    <div class="card-header">
-        <h2>Create Service</h2>
-    </div>
+   
     <div class="card-body" style="text-align:start;font-size:x-large">
         <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -84,6 +80,7 @@
                 </div>
             </div>
             <br />
+
             <input type="submit" value="حفظ البيانات" name="submit" class="btn btn-primary" />
         </form>
     </div>

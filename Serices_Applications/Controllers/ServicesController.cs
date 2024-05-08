@@ -70,7 +70,8 @@ namespace UI.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("create", service);
+					BasicNotification("الرجاء التحقق من اليانات المدخلة", NotificationType.Error);
+					return RedirectToAction("index");
                 }
             }
             catch

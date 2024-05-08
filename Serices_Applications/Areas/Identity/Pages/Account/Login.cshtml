@@ -1,117 +1,81 @@
 ﻿@page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Log in";
-    Layout = "login_layout";
-}
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="container" id="container">
-    <div class="form-container sign-up">
-        <form>
-            <h1>Services System</h1>
-            <div class="social-icons">
-                <a href="#" class="icon">
-                    <i class="fa-brands fa-google-plus-g">
-                    </i>
-                </a>
-                <a href="#" class="icon">
-                    <i class="fa-brands fa-facebook-f">
-                    </i>
-                </a> <a href="#" class="icon">
-                    <i class="fa-brands fa-github">
-                    </i>
-                </a>
-                <a href="#" class="icon">
-                    <i class="fa-brands fa-linkedin-in">
-                    </i>
-                </a>
-
-            </div>
-            <span>
-                system to collect all the services in one place 
-            </span>
-            <div>
-
-            </div>
-           
-        </form>
-    </div>
-
-    <div class="form-container sign-in">
-        <form id="account" method="post">
-            <h3>Use a local account to log in.</h3>
-            <hr />
-            <div class="social-icons">
-                <a href="#" class="icon">
-                    <i class="fa-brands fa-google-plus-g">
-                    </i>
-                </a>
-                <a href="#" class="icon">
-                    <i class="fa-brands fa-facebook-f">
-                    </i>
-                </a> <a href="#" class="icon">
-                    <i class="fa-brands fa-github">
-                    </i>
-                </a>
-                <a href="#" class="icon">
-                    <i class="fa-brands fa-linkedin-in">
-                    </i>
-                </a>
-            </div>
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div >
-                <input asp-for="Input.Email"  autocomplete="username" aria-required="true" placeholder="name@example.com" type="text" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-
-                <input asp-for="Input.Password"  autocomplete="current-password" aria-required="true" placeholder="password" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div style="display:flex !important">
-                <input class="form-check-input" asp-for="Input.RememberMe" />
-                @Html.DisplayNameFor(m => m.Input.RememberMe)
-            </div>
-            <div>
-                <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-            </div>
-            <div style="text-align:center">
-                <p>
-                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                </p>
-                <p>
-                    <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                </p>
-            </div>
-        </form>
-    </div>
-
-
-    <div class="toggle-container">
-        <div class="toggle">
-            <div class="toggle-panel toggle-left">
-                <h1>Welcome Back!</h1>
-                <p>
-                    Enter your personal details to use all of site
-                    features
-                </p>
-                <button class="hidden" id="login">Sign In</button>
-            </div>
-            <div class="toggle-panel toggle-right">
-                <h1>Hello, Friend!</h1>
-                <p>
-                    Register with your personal details to use all of site
-                    features
-                </p>
-                <button class="hidden" id="register">Abiut the system</button>
-            </div>
-        </div>
-    </div>
+<div class="d-flex flex-column flex-root">
+	<!--begin::Authentication - Sign-in -->
+	<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(assets/media/illustrations/sketchy-1/14.png">
+		<!--begin::Content-->
+		<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+			<!--begin::Logo-->
+			<a href="../../demo6/dist/index.html" class="mb-12">
+				<img alt="Logo" src="assets/media/logos/logo-1.svg" class="h-40px" />
+			</a>
+			<!--end::Logo-->
+			<!--begin::Wrapper-->
+			<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+				<!--begin::Form-->
+				<form id="account" method="post">
+					<!--begin::Heading-->
+					<div class="text-center mb-10">
+						<!--begin::Title-->
+						<h1 class="text-dark mb-3">Sign In to </h1>
+						<!--end::Title-->
+					</div>
+					<!--begin::Heading-->
+					<!--begin::Input group-->
+					<div class="fv-row mb-10">
+						<!--begin::Label-->
+						<label class="form-label fs-6 fw-bolder text-dark">Email</label>
+						<!--end::Label-->
+						<!--begin::Input-->
+						<input asp-for="Input.Email" class="form-control form-control-lg form-control-solid" autocomplete="username" aria-required="true" placeholder="name@example.com" type="text" />
+						<span asp-validation-for="Input.Email" class="text-danger"></span>
+						<!--end::Input-->
+					</div>
+					<!--end::Input group-->
+					<!--begin::Input group-->
+					<div class="fv-row mb-10">
+						<!--begin::Wrapper-->
+						<div class="d-flex flex-stack mb-2">
+							<!--begin::Label-->
+							<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+							<!--end::Label-->
+							<!--begin::Link-->
+							<a href="../../demo6/dist/authentication/flows/basic/password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+							<!--end::Link-->
+						</div>
+						<!--end::Wrapper-->
+						<!--begin::Input-->
+						<input asp-for="Input.Password" autocomplete="current-password" class="form-control form-control-lg form-control-solid" aria-required="true" placeholder="password" autocomplete="off" />
+						<span asp-validation-for="Input.Password" class="text-danger"></span>
+						<!--end::Input-->
+					</div>
+					<!--end::Input group-->
+					<!--begin::Actions-->
+					<div class="text-center">
+						<!--begin::Submit button-->
+						<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
+							<span class="indicator-label">Continue</span>
+							<span class="indicator-progress">
+								Please wait...
+								<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+							</span>
+						</button>
+						<!--end::Submit button-->
+					
+					</div>
+					<!--end::Actions-->
+				</form>
+				<!--end::Form-->
+			</div>
+			<!--end::Wrapper-->
+		</div>
+		<!--end::Content-->
+	</div>
+	<!--end::Authentication - Sign-in-->
 </div>
 
-
-
-@* @section Scripts {
+@section Scripts {
     <partial name="_ValidationScriptsPartial" />
-} *@
+}
